@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Animasi Praktikum CSS</title>
+
+<style>
+/* =========================
+   RESET
+========================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#f4f6f9;
+    line-height:1.6;
+}
+
+/* =========================
+   P-1 NAVBAR FIXED
+========================= */
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:transparent;
+    transition:all 0.4s ease;
+    z-index:1000;
+}
+
+.navbar.scrolled{
+    background:#1e293b;
+    box-shadow:0 3px 12px rgba(0,0,0,0.2);
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.nav-links{
+    display:flex;
+    gap:20px;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* =========================
+   P-2 HERO ANIMATION
+========================= */
+.hero{
+    height:100vh;
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    padding:20px;
+}
+
+.hero-content{
+    animation:fadeSlideUp 1.5s ease forwards;
+}
+
+.hero h1{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:1.2rem;
+}
+
+@keyframes fadeSlideUp{
+    from{
+        opacity:0;
+        transform:translateY(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* =========================
+   P-5 CTA BUTTON
+========================= */
+.cta-btn{
+    display:inline-block;
+    margin-top:25px;
+    padding:15px 35px;
+    background:#f59e0b;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
+    animation:pulse 2s infinite;
+    transition:all 0.3s ease;
+}
+
+.cta-btn:hover{
+    background:#dc2626;
+    transform:translateY(-5px);
+}
+
+@keyframes pulse{
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+    100%{
+        transform:scale(1);
+    }
+}
+
+/* =========================
+   P-3 PRODUCT GRID
+========================= */
+.products{
+    padding:100px 50px;
+}
+
+.products h2{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    transition:all 0.4s ease;
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card h3{
+    margin:15px 0;
+}
+
+.card:hover{
+    transform:scale(1.05);
+    box-shadow:0 15px 30px rgba(0,0,0,0.2);
+    background:#dbeafe;
+}
+
+/* =========================
+   P-4 LOADING SPINNER
+========================= */
+.loading{
+    display:flex;
+    justify-content:center;
+    margin:50px 0;
+}
+
+.spinner{
+    width:60px;
+    height:60px;
+    border:6px solid #ddd;
+    border-top:6px solid #2563eb;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+.hidden{
+    display:none;
+}
+
+@keyframes spin{
+    from{
+        transform:rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+/* =========================
+   P-6 ANIMASI KREATIF
+========================= */
+.creative{
+    padding:100px 20px;
+    text-align:center;
+    background:#111827;
+    color:white;
+}
+
+.orbit{
+    width:250px;
+    height:250px;
+    margin:auto;
+    border:2px dashed #555;
+    border-radius:50%;
+    position:relative;
+}
+
+.planet{
+    width:40px;
+    height:40px;
+    background:#f59e0b;
+    border-radius:50%;
+    position:absolute;
+    top:-20px;
+    left:105px;
+    animation:orbitPlanet 5s linear infinite;
+}
+
+.sun{
+    width:70px;
+    height:70px;
+    background:gold;
+    border-radius:50%;
+    position:absolute;
+    top:90px;
+    left:90px;
+    box-shadow:0 0 25px gold;
+}
+
+@keyframes orbitPlanet{
+    from{
+        transform:rotate(0deg)
+                   translateX(125px)
+                   rotate(0deg);
+    }
+    to{
+        transform:rotate(360deg)
+                   translateX(125px)
+                   rotate(-360deg);
+    }
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+    background:#1e293b;
+    color:white;
+}
+</style>
+</head>
+<body>
+
+<!-- P-1 NAVBAR -->
+<nav class="navbar" id="navbar">
+    <div class="logo">Praktikum CSS</div>
+
+    <div class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">Produk</a>
+        <a href="#">Kontak</a>
+    </div>
+</nav>
+
+<!-- P-2 HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Selamat Datang</h1>
+        <p>Demo CSS Transition, Transform, dan Animation</p>
+
+        <!-- P-5 CTA -->
+        <a href="#produk" class="cta-btn">
+            Lihat Produk
+        </a>
+    </div>
+</section>
+
+<!-- P-3 GRID PRODUK -->
+<section class="products" id="produk">
+
+    <h2>Produk Unggulan</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://picsum.photos/300/200?1">
+            <h3>Produk 1</h3>
+            <p>Deskripsi produk pertama.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/200?2">
+            <h3>Produk 2</h3>
+            <p>Deskripsi produk kedua.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/200?3">
+            <h3>Produk 3</h3>
+            <p>Deskripsi produk ketiga.</p>
+        </div>
+
+        <div class="card">
+            <img src="https://picsum.photos/300/200?4">
+            <h3>Produk 4</h3>
+            <p>Deskripsi produk keempat.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- P-4 LOADING SPINNER -->
+<div class="loading">
+    <div class="spinner"></div>
+</div>
+
+<!-- P-6 ANIMASI KREATIF -->
+<section class="creative">
+
+    <h2 style="margin-bottom:40px;">
+        Animasi Planet Mengorbit
+    </h2>
+
+    <div class="orbit">
+        <div class="sun"></div>
+        <div class="planet"></div>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 Praktikum CSS Animation
+</footer>
+
+<script>
+/* Navbar berubah saat scroll */
+window.addEventListener("scroll", function(){
+    const navbar = document.getElementById("navbar");
+
+    if(window.scrollY > 50){
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+
+/* Contoh show/hide spinner */
+setTimeout(()=>{
+    document.querySelector(".loading")
+            .classList.add("hidden");
+},3000);
+</script>
+
+</body>
+</html>
